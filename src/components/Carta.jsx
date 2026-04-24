@@ -222,6 +222,13 @@ Será una salida de rutina por un rato...
       <p className="text-sm text-white leading-relaxed">
         🚫NO es la promoción de 2 hamburguesas x $20.000.
       </p>
+      <div className="mt-4 flex justify-center overflow-hidden">
+        <img
+          src="/perrito.webp"
+          alt="doggie"
+          className="w-48 h-48 object-cover mx-auto"
+        />
+      </div>
 
       <button
         className="mt-5 py-2 px-4 rounded-full text-sm"
