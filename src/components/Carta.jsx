@@ -12,19 +12,25 @@ export default function Carta() {
   const [displayedText, setDisplayedText] = useState("");
   //const [confirmed, setConfirmed] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showModalHint, setShowModalHint] = useState(false);
+
   const [finished, setFinished] = useState(false);
 
   const fullText = `Mi amor, como siempre hay una primera vez...
-  Esta vez quiero hacerte esta invitación especial.
+  Esta vez quiero hacerte una invitación diferente.
+  Tu y yo, los dos compartiendo un momento especial.
+  En un lugar especial.
+  Te invito a una ocasión diferente, juntos.
 
-Te invito a una cena especial conmigo.
 
 📅 Sábado 2 de mayo de 2026
 🕒 Hora de recogida: 7:30 pm
-📍 (Lugar sorpresa)
-👔 Dress code: Elegante
+📍 (Lugar Sorpresa)
+👗 Dress code: Elegante
 
-Será una ocasión especial para nuestra relación.`;
+Será una salida de rutina por un rato...
+¿Qué te parece?♥️
+`;
 
   useEffect(() => {
   if (opened) {
@@ -99,25 +105,45 @@ Será una ocasión especial para nuestra relación.`;
           </p>
 
           {finished && (
-            <button
-              className="relative mt-6 py-3 rounded-full w-full overflow-hidden active:scale-95 transition"
-              style={{
-                background: "linear-gradient(90deg, #f8c8dc, #ff9bb3)",
-                color: "#111",
-                fontWeight: "500",
-                letterSpacing: "0.5px",
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                navigator.vibrate?.(50);
-                setShowModal(true);
-              }}
-            >
-              <span className="relative z-10">Confirmar asistencia ✨</span>
-              <span className="absolute inset-0 shine"></span>
-            </button>
+            <>
+             <button
+                className="relative mt-6 py-3 rounded-full w-full overflow-hidden active:scale-95 transition"
+                style={{
+                  background: "linear-gradient(90deg, #f8c8dc, #ff9bb3)",
+                  color: "#111",
+                  fontWeight: "500",
+                  letterSpacing: "0.5px",
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigator.vibrate?.(50);
+                  setShowModalHint(true);
+                }}
+              >
+                <span className="relative z-10">Ver Pista 🔍</span>
+                <span className="absolute inset-0 shine"></span>
+              </button>
+              <button
+                className="relative mt-6 py-3 rounded-full w-full overflow-hidden active:scale-95 transition"
+                style={{
+                  background: "linear-gradient(90deg, #f8c8dc, #ff9bb3)",
+                  color: "#111",
+                  fontWeight: "500",
+                  letterSpacing: "0.5px",
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigator.vibrate?.(50);
+                  setShowModal(true);
+                }}
+              >
+                <span className="relative z-10">Confirmar asistencia ✨</span>
+                <span className="absolute inset-0 shine"></span>
+              </button>
+            </>
           )}
         </div>
+
       </div>
     </div>
     {showModal && (
@@ -135,7 +161,7 @@ Será una ocasión especial para nuestra relación.`;
         className="text-xl mb-3"
         style={{ color: "#f8c8dc" }}
       >
-        Sabía que dirías que sí 💗
+        Sabía que dirías que sí 🫶🏻
       </h2>
 
       {/* Línea decorativa */}
@@ -146,8 +172,15 @@ Será una ocasión especial para nuestra relación.`;
 
       <p className="text-sm text-white leading-relaxed">
         Entonces… nos vemos esa noche ✨  
-        Va a ser algo muy especial para nosotros.
+        Quiero que sea muy especial para nosotros 💖
       </p>
+      <div className="mt-4 overflow-hidden rounded-xl">
+        <img
+          src="/sofiyyo.jpeg"
+          alt="Nosotros"
+          className="w-full h-48 object-cover"
+        />
+      </div>
 
       <button
         className="mt-5 py-2 px-4 rounded-full text-sm"
@@ -158,6 +191,47 @@ Será una ocasión especial para nuestra relación.`;
         onClick={() => setShowModal(false)}
       >
         Cerrar 💗
+      </button>
+    </div>
+  </div>
+)}
+{showModalHint && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-6">
+    
+    <div
+      className="w-full max-w-sm rounded-2xl p-6 text-center animate-fadeIn"
+      style={{
+        background: "linear-gradient(145deg, #111111, #1a1a1a)",
+        border: "1px solid rgba(248,200,220,0.25)",
+        boxShadow: "0 0 40px rgba(248,200,220,0.15)",
+      }}
+    >
+      <h2
+        className="text-xl mb-3"
+        style={{ color: "#f8c8dc" }}
+      >
+        Pista... 🕵️‍♂️
+      </h2>
+
+      {/* Línea decorativa */}
+      <div
+        className="w-12 h-[1px] mx-auto my-3"
+        style={{ background: "#f8c8dc" }}
+      />
+
+      <p className="text-sm text-white leading-relaxed">
+        🚫NO es la promoción de 2 hamburguesas x $20.000.
+      </p>
+
+      <button
+        className="mt-5 py-2 px-4 rounded-full text-sm"
+        style={{
+          background: "#f8c8dc",
+          color: "#111",
+        }}
+        onClick={() => setShowModalHint(false)}
+      >
+        Cerrar 
       </button>
     </div>
   </div>
